@@ -1,0 +1,30 @@
+.header {
+	background: @black;
+	color: @white;
+	.cl;
+
+
+	@media @desktop {		
+		height: 100px;
+	}
+
+	.logo {
+		width: 100%;
+		padding-right: 40px;
+		position: relative;
+		@media @desktop {
+			position: absolute;
+			bottom: -10%;
+			left: 0;
+			height: 110%;
+			max-width: 60%;
+			width: auto;
+		}
+	}
+	.main-nav {
+		@media @desktop {			
+			width: 50%;
+			float: right;
+		}
+	}
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>KDX-test</title>
+	<link rel="stylesheet" href="css/vendor.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&subset=cyrillic" rel="stylesheet"> 
+</head>
+<body>
+	<section id="page">	
+		<section id="header" class="header">
+		<div class="container">			
+			<div id="logo" class="logo">
+				<a href="#">
+					<img src="img/DUCK.png" alt="">
+				</a>
+			</div>
+			<nav class="main-nav" id="main-nav">
+			<!-- handlebars mainNavigation HERE -->
+			</nav>
+		</div>
+
+		</section>
+		<section class="main-slider" id="main-slider">
+			<!-- handlebars mainSlider HERE -->
+		</section>
+		<section id="car-list-desktop" class="car-list-desktop container">
+			<!-- handlebars carListDesktop HERE -->
+		</section>
+
+		<section id="car-list-mobile" class="car-list-mobile container">
+			<!-- handlebars carListMobile HERE -->
+		</section>
+	</section>
+	<footer id="footer" class="footer">
+		<div class="copyright">
+			© 2016 CAPTAIN QUACK<br>
+	Вафли-вафли, венские вафли...
+		</div>
+	</footer>
+
+
+
+	<!-- handlebars mainNavigation -->
+		<script id="mainNavigation" type="text/x-handlebars-template">​
+		<ul class="main-nav__list">
+				{{#each items}}
+					<li class="
+						main-nav__list__item 
+						{{#if childrens}}
+							js-menu-item-parent							
+							main-nav__list__item_parent
+						{{/if}}
+					">
+						<a href="{{link}}">{{title}}</a>
+							{{#if childrens}}
+								<ul class="main-nav__list-sub">
+									{{#each childrens}}
+										<li class="main-nav__list-sub__item">											
+											<a href="{{link}}">{{title}}</a>
+										</li>
+									{{/each}}
+								</ul>
+							{{/if}}
+					</li>
+				{{/each}}
+			</ul>
+		</script>
+	<!-- handlebars mainNavigation END -->
+
+	<!-- handlebars carListDesktop -->
+		<script id="carListDesktop" type="text/x-handlebars-template">​
+			<table class="cars-desk">
+				</tbody>
+				<thead>
+					<tr>
+						<td class="car__type">Название</td>
+						<td class="car__year">Год</td>
+						<td class="car__color">Цвет</td>
+						<td class="car__status">Статус</td>
+						<td class="car__price"><span class="table-header-sort table-header-sort-desc">Цена</span></td>
+						<td class="car__button"></td>
+					</tr>
+				</thead>
+				<tbody>
+				{{#each cars}}
+					<tr class="car">
+						<td class="car__type">
+							{{type}}
+							{{#if description}}
+								<div class="car__desc">{{description}}</div>
+							{{/if}}
+						</td>
+						<td class="car__year">{{year}}</td>
+						<td class="car__color">							
+							<div class="car__color__bubble" style="background: {{color}};"></div>
+						</td>
+						<td class="car__status">{{status}}</td>
+						<td class="car__price js-format-price">{{price}} руб.</td>
+						<td class="car__button">
+							<button class="btn">Запрос</button>
+						</td>
+					</tr>					
+				{{/each}}
+			</table>
+		</script>
+	<!-- handlebars carList END -->
+
+	<!-- handlebars carListMobile -->
+		<script id="carListMobile" type="text/x-handlebars-template">​
+		<ul class="cars-mob">
+			{{#each cars}}
+				<li class="car">
+					<div class="car__header">
+						<div class="car__type">{{type}}</div>
+						<div class="car__color">
+							<div class="car__color__bubble" style="background: {{color}};"></div>
+						</div>
+						<div class="car__price js-format-price">{{price}} Руб.</div>						
+					</div>
+					{{#if description}}
+						<div class="car__desc">{{description}}</div>
+					{{/if}}
+					<div class="car__footer">
+						<div class="car__year">{{year}}</div>
+						<div class="car__status">{{status}}</div>
+						<div class="car__button"><button class="btn">Запрос</button></div>
+					</div>
+				</li>
+			{{/each}}
+		</ul>
+		</script>
+	<!-- handlebars carList END -->
+
+	<!-- handlebars mainSlider -->
+		<script id="mainSlider" type="text/x-handlebars-template">​
+				{{#each slides}}
+				<div class="main-slider__slide">					
+					<img class="main-slider__slide__img" src="{{img}}" alt="{{title}}">
+					<div class="main-slider__slide__overlay">
+					<h2 class="main-slider__slide__title">
+						{{title}}
+					</h2>
+						{{#if products}}
+							{{#each products}}
+								<div 
+									class="main-slider__slide__prod"
+									style="
+									  top:{{pos.top}};
+									  left:{{pos.left}};
+									"
+								>
+									<div class="main-slider__slide__prod__plus js-main-slider__slide__prod__plus"></div>
+									<div class="main-slider__slide__prod__desc">
+										{{type}}<br>
+										{{name}}<br>
+										<span class="js-format-price">{{price}} руб.</span><br>
+									</div>
+								</div>
+							{{/each}}
+						{{/if}}
+					</div>
+				</div>
+				{{/each}}
+		</script>
+	<!-- handlebars mainSlider END -->
+
+</body>
+<script src="js/vendor.js"></script>
+
+<script src="js/main.js"></script>
+</html>

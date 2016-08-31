@@ -1,0 +1,148 @@
+.car-list {
+	padding: 0;
+	&-mobile {
+		display: block;
+		
+		@media @desktop {
+			display: none;
+		}
+	}
+
+	&-desktop {
+		display: none;
+		
+		@media @desktop {
+			display: block;
+		}
+	}
+}
+
+.car {
+	background: @table-bg;
+	color: @table-font-black;
+	font-weight: 300;
+
+	&__color {
+		&__bubble {
+			@bbl_size: 20px;
+			width: @bbl_size;
+			height: @bbl_size;
+			border-radius: 50%;
+			border: 1px solid @black;
+		}
+	}
+	&__desc {		
+		color: @table-font-grey;
+	}
+}
+
+.cars-mob {
+	padding: 0;
+	.car {		
+		display: block;
+		padding: @main-pad 5%;
+		border-top: 1px solid darken(@table-bg, 10%);
+		
+		&__header {
+			margin-bottom: 10px;
+			.cl;
+		}
+
+		&__type {
+			width: 50%;
+			float: left;
+		}
+		&__color {
+			width: 15%;
+			float: left;
+
+			&__bubble {				
+				float: right;
+			}
+		}
+		&__price {
+			width: 35%;				
+			float: left;
+			text-align: right;
+		}
+
+		&__desc {
+			width: 80%;		
+			font-size: .9em;
+			padding: 10px 0 0;
+		}
+
+		&__footer {
+			margin-top: 20px;
+			.cl;
+			height: 35px;
+
+			&>* {
+				line-height: 35px;
+			}
+		}
+
+		&__year {
+			width: 20%;				
+			float: left;			
+		}
+		&__status {
+			width: 50%;				
+			float: left;	
+		}
+		&__button {
+			width: 30%;				
+			float: left;	
+			text-align: right;	
+		}
+	}
+}
+.cars-desk {
+
+	thead {
+		background: @table-header;
+	}
+
+	td {			
+		padding: @main-pad;
+		text-align: left;
+	}		
+
+	.car {		
+		width: 100%;
+		border-bottom: 1px solid darken(@table-bg, 7.5%);
+
+		&__type {
+			width: 45%;
+		}
+		&__year {
+			width: 10%;			
+		}
+		&__color {
+			width: 5%;
+			text-align: center;
+
+			&__bubble {
+				margin: 0 auto;
+			}
+		}
+		&__status {
+			width: 10%;		
+		}
+		&__price {
+			width: 20%;	
+		}
+		&__button {
+			width: 10%;	
+			.btn {
+				background: none;
+				color: @table-font-black;
+				.transition;
+
+				&:hover {
+					.btn;
+				}
+			}	
+		}
+	}
+}
